@@ -6,6 +6,8 @@
 Данные скрипты написаны для расширения Tampermonkey [сайт](https://www.tampermonkey.net/) | [Google Расширения](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo)
 
 Необходимо быть авторизованым в кошелек для работы скрипта.
+Необходимо установить скрипты.
+Панель управления Tampermonkey -> + (добавить скрипт) -> Заменить код -> Сохранить -> Включить
 
 ### DRAWS.JS
 Данный скрипт позволяет автоматически выполнять активность на вкладке.
