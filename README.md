@@ -42,4 +42,4 @@
 Скрипты ищут элемент по xPath.
 Если скрипт перестал работать, попробуйте изменить
 
-Отблагодарить автора: [0x309da255baedbc3a1bb97e07ca2064dd22aaaccc](https://debank.com/profile/0x309da255baedbc3a1bb97e07ca2064dd22aaaccc)
+Отблагодарить автора: [0x99984bBFF08C169796E1B070CFfCb3795fAf9999](https://debank.com/profile/0x99984bBFF08C169796E1B070CFfCb3795fAf9999)
