@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DEBANK DRAWS
 // @namespace    http://tampermonkey.net/
-// @version      0.5
+// @version      0.6
 // @description  try to take over the world!
 // @author       latyshdev
 // @match        https://debank.com/stream/*
