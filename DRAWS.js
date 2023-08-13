@@ -33,7 +33,9 @@ const XPATH = {
   drawEnded: `//div//span[text()='draw has been finished']`,
   follow: `//div[text()='Join the Lucky Draw']//..//button[@aria-disabled="false" and text()='Follow']`,
   completed: `//div[text()='']//..//..//..//div[text()='Completed']`,
-  limit: `//div//span[text()='You have reached the maximum limit of following 1000 users.']`,
+  limit_1000: `//div//span[contains(text(), 'maximum limit of following 1000 users')]`,
+  limit_100: `//div//span[contains(text(), 'following 100 users')]`,
+  limitByDay: `//*[contains(text(), ' hit your 24-hour join Lucy draw limit based on your Web3 Social Ranking')]`,
   notQualified: `//div//div[text()='Not qualified']`,
   errorFinished: `//div//*[text()='draw has been finished']`,
   pleaseAllow: `//div//div[text()='Please allow in your wallet']`,
@@ -129,8 +131,9 @@ setInterval(() => {
       }
 
       // Если 1000 подписчиков
-      let limit = getElementByXpath(XPATH.limit, document);
-      if (limit) {
+      let limit_100 = getElementByXpath(XPATH.limit_100, document);
+      let limit_1000 = getElementByXpath(XPATH.limit_1000, document);
+      if (limit_100 || limit_1000) {
         alert("Слишком много подписок")
         CLOSE_TAB && window.close();
         break;
@@ -157,8 +160,15 @@ setInterval(() => {
         let finished = getElementByXpath(XPATH.errorFinished, document);
         let hidden = getElementByXpath(XPATH.hidden, document);
         let operationRequirements = getElementByXpath(XPATH.operationRequirements, document);
+        let limit_100 = getElementByXpath(XPATH.limit_100, document);
+        let limit_1000 =  getElementByXpath(XPATH.limit_1000, document);
+        let limitByDay =  getElementByXpath(XPATH.limitByDay, document);
 
-        return (error || notQualified || hidden || operationRequirements || finished) ? true : false;
+        return (error || notQualified || hidden 
+          || operationRequirements || finished
+          || limit_100 || limit_1000 || limitByDay) 
+           ? true 
+           : false;
       }
     }
 

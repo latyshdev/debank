@@ -10,10 +10,11 @@
 // ==/UserScript==
 
 /* ========================================================================= */
-const PAUSE_UNFOLLOW = 5000; // Пауза в ms (1000 ms = 1 сек);
+const PAUSE_UNFOLLOW = 10000; // Пауза в ms (1000 ms = 1 сек);
 const AMOUNT_TO_UNFOLLOW = 100; // Количество отписок от 1 до 100
-greetings();
+const NETWORTH_DONT_UNFOLLOW = 1500;  // Размер банка, держим в подписках
 /* ========================================================================= */
+greetings();
 (
   async () => {
     const USERS = {};
@@ -35,8 +36,8 @@ greetings();
     let k = 0;
     for (let i = Object.keys(USERS).length - 1; i >= 0 && k < AMOUNT_TO_UNFOLLOW; i--) {
         // console.log(USERS[i].balance, USERS[i].unFollow);
-        USERS[i].unFollow.click();
-        await pause(PAUSE_UNFOLLOW);
+        USERS[i].balance < NETWORTH_DONT_UNFOLLOW && USERS[i].unFollow.click()
+        && await pause(PAUSE_UNFOLLOW);
         k++;
     };
 
