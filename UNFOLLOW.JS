@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         DEBANK UNFOLLOW
 // @namespace    http://tampermonkey.net/
-// @version      0.3
+// @version      0.4
 // @description  try to take over the world!
 // @author       latyshdev
 // @match        https://debank.com/profile/*
@@ -33,15 +33,18 @@ greetings();
     });
     console.log(USERS);
 
-    let k = 0;
-    for (let i = Object.keys(USERS).length - 1; i >= 0 && k < AMOUNT_TO_UNFOLLOW; i--) {
-        // console.log(USERS[i].balance, USERS[i].unFollow);
-        if (USERS[i].balance < NETWORTH_DONT_UNFOLLOW) {
-          USERS[i].unFollow.click();
-          await pause(PAUSE_UNFOLLOW);
-        }
-        k++;
-    };
+    let unFollowUsersArray = Object.keys(USERS).filter(user => {
+      return USERS[user].balance < NETWORTH_DONT_UNFOLLOW
+    });
+
+    unFollowUsersArray = unFollowUsersArray.reverse();
+    console.log(unFollowUsersArray);
+
+    for await (let user of unFollowUsersArray) {
+      console.log(USERS[user]);
+      USERS[user].unFollow.click();
+      await pause(PAUSE_UNFOLLOW);
+    }
 
     // Object.keys(USERS).length > 0 && alert("READY!");
   }
