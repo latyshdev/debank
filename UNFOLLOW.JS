@@ -30,17 +30,17 @@ greetings();
         i++;
         return;
     });
-    console.log(USERS);
+    // console.log(USERS);
 
     let unFollowUsersArray = Object.keys(USERS).filter(user => {
       return USERS[user].balance < NETWORTH_DONT_UNFOLLOW
     });
 
     unFollowUsersArray = unFollowUsersArray.reverse();
-    console.log(unFollowUsersArray);
+    // console.log(unFollowUsersArray);
 
     for await (let user of unFollowUsersArray) {
-      console.log(USERS[user]);
+      // console.log(USERS[user]);
       USERS[user].unFollow.click();
       await pause(PAUSE_UNFOLLOW);
     }
