@@ -36,12 +36,14 @@ greetings();
     let k = 0;
     for (let i = Object.keys(USERS).length - 1; i >= 0 && k < AMOUNT_TO_UNFOLLOW; i--) {
         // console.log(USERS[i].balance, USERS[i].unFollow);
-        USERS[i].balance < NETWORTH_DONT_UNFOLLOW && USERS[i].unFollow.click()
-        && await pause(PAUSE_UNFOLLOW);
+        if (USERS[i].balance < NETWORTH_DONT_UNFOLLOW) {
+          USERS[i].unFollow.click();
+          await pause(PAUSE_UNFOLLOW);
+        }
         k++;
     };
 
-    Object.keys(USERS).length > 0 && alert("READY!");
+    // Object.keys(USERS).length > 0 && alert("READY!");
   }
 )();
 
