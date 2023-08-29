@@ -203,6 +203,6 @@ function randomBetweenInt(min, max){
 /* ========================================================================= */
 function greetings () {
   console.log("Запущен скрипт от latyshdev для DeBank");
-  console.log("Поддержать автора: https://debank.com/profile/0x309da255baedbc3a1bb97e07ca2064dd22aaaccc");
+  console.log("Поддержать автора: https://debank.com/profile/0x99984bbff08c169796e1b070cffcb3795faf9999");
   return;
 }

@@ -19,14 +19,14 @@ greetings();
     const USERS = {};
     i = 0;
     document.querySelectorAll('.db-table-row').forEach(l => {
-        //console.log(l);
+        // console.log(l);
         let rows = l.querySelectorAll('.db-table-cell');
         USERS[i] = {};
         USERS[i].balance = rows[2].innerText;
         USERS[i].balance = USERS[i].balance.replaceAll("$", "");
         USERS[i].balance = USERS[i].balance.replaceAll(",", "");
         USERS[i].balance = parseInt(USERS[i].balance);
-        USERS[i].unFollow = rows[5].querySelector('span');
+        USERS[i].unFollow = rows[rows.length - 1].querySelector('span');
         i++;
         return;
     });
@@ -40,7 +40,7 @@ greetings();
     // console.log(unFollowUsersArray);
 
     for await (let user of unFollowUsersArray) {
-      // console.log(USERS[user]);
+      console.log(USERS[user]);
       USERS[user].unFollow.click();
       await pause(PAUSE_UNFOLLOW);
     }
@@ -59,6 +59,6 @@ async function pause(ms){
 function greetings () {
   console.log("Запущен скрипт от latyshdev для DeBank");
   console.log("Поддержать автора:", 
-    "https://debank.com/profile/0x309da255baedbc3a1bb97e07ca2064dd22aaaccc");
+    "https://debank.com/profile/0x99984bbff08c169796e1b070cffcb3795faf9999");
   return;
 }
